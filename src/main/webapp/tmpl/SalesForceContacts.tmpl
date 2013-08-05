@@ -1,0 +1,19 @@
+<script id="tmpl-SalesForceContacts" type="text/html">
+    <div class="SalesForceContacts">
+    	<table>
+    	<tr>
+    		<th>SF Contacts</th>
+    		<th>Label</th>
+    		<th></th>
+    	</tr>
+    		 {{#each contacts.result}}
+    		 <tr>
+			     
+			     <td class="tcell">{{Name}}</td>
+			     <td class="tcell">(None)</td>
+			     <td class="tcell"><button class="btn btn-primary">Add Label</button></td>
+     		</tr>
+     		 {{/each}}
+	    </table>
+    </div>
+</script>
