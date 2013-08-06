@@ -18,7 +18,6 @@
                 	console.log(contacts);
                 	brite.display("SalesForceContacts",".SalesForceScreen-content",{contacts:contacts});
                 });
-                
             },
             events:{
               "btap;.nav li":function(e){
@@ -33,14 +32,7 @@
                   brite.display("SalesForceContacts");
                 }
               }
-            },
-
-            docEvents:{
-            },
-
-            daoEvents:{
             }
-            
         });
     })(jQuery);
 

@@ -37,7 +37,9 @@ public class SFContactWebHandlers {
             pageSize = 10;
         }
         
-        Map result = salesforceService.listContacts(token, pageIndex, pageSize);
+        Map result = salesforceService.listContacts(token, pageIndex-1, pageSize);
+        result.put("pageSize", pageSize);
+        result.put("pageIndex", pageIndex);
         m.putAll(result);
         return m ;
     }
