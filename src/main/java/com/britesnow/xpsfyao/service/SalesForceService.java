@@ -41,7 +41,7 @@ public class SalesForceService {
         return resultMap;
     }
 
-    public void syncContacts(String token){
+    public Map syncContacts(String token){
     	 Map resultMap = new HashMap();
          String sql = "SELECT id,name, title FROM Contact";
          OAuthRequest oauth = new OAuthRequest(Verb.GET,SF_QUERY_URL);
@@ -51,7 +51,7 @@ public class SalesForceService {
          Map opts = JsonUtil.toMapAndList(oauth.send().getBody());
          resultMap.put("result", opts.get("records"));
          saveContactsFromSF(opts.get("records"));
-         
+         return resultMap;
     }
     
     public void saveContactsFromSF(Object contacts){

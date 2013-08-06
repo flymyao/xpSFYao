@@ -20,10 +20,12 @@
 					view.$el.remove();
 					if(contact.label){
 						$contactTr.find(".labelText").html(contact.label);
+						$contactTr.find(".none").hide();
 						$contactTr.find(".deleteLabel").removeClass("hide");
 						$contactTr.find(".addLabel").addClass("hide");
 					}else{
 						$contactTr.find(".labelText").empty();
+						$contactTr.find(".none").show();
 						$contactTr.find(".deleteLabel").addClass("hide");
 						$contactTr.find(".addLabel").removeClass("hide");
 					}

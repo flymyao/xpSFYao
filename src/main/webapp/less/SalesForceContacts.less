@@ -9,10 +9,26 @@
 .SalesForceContacts .tcell{
 	width:30%;
 	text-align:center;
-	padding:10px 5px;
 }
 
 .SalesForceContacts .labelText{
 	color:#508BF2;
 	cursor:pointer;
+}
+
+.SalesForceContacts tr:nth-child(1){
+  background-color:#5b96c5;
+  td{
+	color: #fff;
+	font-weight: bold;
+	font-size: 16px;
+	text-align:center;
+	padding: 7px 0px;
+  }
+}
+.SalesForceContacts tr[data-id]:nth-child(even){
+  background-color:#d8e0eb;
+}
+.SalesForceContacts tr[data-id]:nth-child(odd){
+  background-color:#edf1f6;
 }

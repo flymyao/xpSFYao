@@ -9,6 +9,7 @@ import org.json.JSONException;
 import com.britesnow.snow.web.RequestContext;
 import com.britesnow.snow.web.param.annotation.WebModel;
 import com.britesnow.snow.web.param.annotation.WebParam;
+import com.britesnow.snow.web.param.annotation.WebUser;
 import com.britesnow.snow.web.rest.annotation.WebGet;
 import com.britesnow.snow.web.rest.annotation.WebPost;
 import com.britesnow.xpsfyao.dao.SocialIdEntityDao;
@@ -49,5 +50,11 @@ public class SFContactWebHandlers {
     @WebPost("/salesforce/updateLabel")
     public Contact updateLabel(@WebParam("label")String label,@WebParam("id")Long id) throws HttpException, IOException, JSONException {
     	return salesforceService.updateLabel(label, id);
+    }
+    
+    @WebPost("/salesforce/sync")
+    public Map sync(@WebUser User user) throws HttpException, IOException, JSONException {
+        String token = socialIdEntityDao.getSocialdentity(user.getId(), ServiceType.SalesForce).getToken();
+    	return salesforceService.syncContacts(token);
     }
 }

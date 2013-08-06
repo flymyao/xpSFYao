@@ -47,6 +47,7 @@
             		var id = $tr.attr("data-id");
             		app.sf.updateLabel({label:"",id:id}).done(function(contact){
             			$tr.find(".labelText").empty();
+            			$tr.find(".none").show();
             			$tr.find(".addLabel").removeClass("hide");
             			$deleteBtn.addClass("hide");
     				});

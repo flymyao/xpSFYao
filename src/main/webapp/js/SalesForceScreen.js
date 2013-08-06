@@ -15,7 +15,6 @@
                 var view = this;
                 var $e = view.$el;
                 app.sf.listContacts().done(function(contacts){
-                	console.log(contacts);
                 	brite.display("SalesForceContacts",".SalesForceScreen-content",{contacts:contacts});
                 });
             },
@@ -29,8 +28,15 @@
                 
                 var menu = $li.attr("data-nav");
                 if(menu == "contacts"){
-                  brite.display("SalesForceContacts");
+                	 app.sf.listContacts().done(function(contacts){
+                     	brite.display("SalesForceContacts",".SalesForceScreen-content",{contacts:contacts});
+                     });
                 }
+              },
+              "click;.sync":function(event){
+            	  app.sf.sync().done(function(contacts){
+            		  alert("Synced "+contacts.result.length+" contacts.");
+            	  });
               }
             }
         });

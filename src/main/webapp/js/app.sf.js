@@ -12,4 +12,10 @@ var app = app || {};
 		params.method="Post";
 		return app.getJsonData(contextPath+"/salesforce/updateLabel",params);
 	}
+	
+	app.sf.sync = function(params){
+		params=params||{};
+		params.method="Post";
+		return app.getJsonData(contextPath+"/salesforce/sync",params);
+	}
 })(jQuery);

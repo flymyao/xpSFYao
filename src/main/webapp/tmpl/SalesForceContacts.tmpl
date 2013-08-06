@@ -1,18 +1,26 @@
 <script id="tmpl-SalesForceContacts" type="text/html">
     <div class="SalesForceContacts">
-    	<table>
+    	<table class="table table-condensed">
     	<tr>
-    		<th>SF Contacts</th>
-    		<th>Label</th>
-    		<th></th>
+    		<td>SF Contacts</td>
+    		<td>Label</td>
+    		<td></td>
     	</tr>
     		 {{#each contacts.result}}
     		 <tr data-id="{{id}}" data-label="{{label}}" data-name="{{name}}">
 			     <td class="tcell">{{name}}</td>
-			     <td class="tcell"><span class="labelText">{{label}}</span></td>
 			     <td class="tcell">
-			     	<button class="btn btn-primary deleteLabel{{#if label.length}} {{else}} hide{{/if}}">Delete Label</button>
-			     	<button class="btn btn-primary addLabel {{#if label.length}} hide{{/if}}">Add Label</button>
+			     	{{#if label.length}}
+			     	<span class="labelText">{{label}}</span>
+			     	<span class="none hide">(None)</span>
+			     	{{else}}
+			     	<span class="labelText"></span>
+			     	<span class="none">(None)</span>
+			     	{{/if}}
+			     </td>
+			     <td class="tcell">
+			     	<button class="btn btn-primary btn-small deleteLabel{{#if label.length}} {{else}} hide{{/if}}">Delete Label</button>
+			     	<button class="btn btn-primary btn-small addLabel {{#if label.length}} hide{{/if}}">Add Label</button>
 			     </td>
      		</tr>
      		 {{/each}}
