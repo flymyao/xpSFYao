@@ -10,7 +10,9 @@ import com.britesnow.snow.web.RequestContext;
 import com.britesnow.snow.web.param.annotation.WebModel;
 import com.britesnow.snow.web.param.annotation.WebParam;
 import com.britesnow.snow.web.rest.annotation.WebGet;
+import com.britesnow.snow.web.rest.annotation.WebPost;
 import com.britesnow.xpsfyao.dao.SocialIdEntityDao;
+import com.britesnow.xpsfyao.entity.Contact;
 import com.britesnow.xpsfyao.entity.User;
 import com.britesnow.xpsfyao.oauth.ServiceType;
 import com.britesnow.xpsfyao.service.SalesForceService;
@@ -44,4 +46,8 @@ public class SFContactWebHandlers {
         return m ;
     }
 	
+    @WebPost("/salesforce/updateLabel")
+    public Contact updateLabel(@WebParam("label")String label,@WebParam("id")Long id) throws HttpException, IOException, JSONException {
+    	return salesforceService.updateLabel(label, id);
+    }
 }

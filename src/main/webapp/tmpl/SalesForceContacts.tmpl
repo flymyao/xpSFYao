@@ -7,11 +7,13 @@
     		<th></th>
     	</tr>
     		 {{#each contacts.result}}
-    		 <tr>
-			     
+    		 <tr data-id="{{id}}" data-label="{{label}}" data-name="{{name}}">
 			     <td class="tcell">{{name}}</td>
-			     <td class="tcell">(None)</td>
-			     <td class="tcell"><button class="btn btn-primary">Add Label</button></td>
+			     <td class="tcell"><span class="labelText">{{label}}</span></td>
+			     <td class="tcell">
+			     	<button class="btn btn-primary deleteLabel{{#if label.length}} {{else}} hide{{/if}}">Delete Label</button>
+			     	<button class="btn btn-primary addLabel {{#if label.length}} hide{{/if}}">Add Label</button>
+			     </td>
      		</tr>
      		 {{/each}}
 	    </table>

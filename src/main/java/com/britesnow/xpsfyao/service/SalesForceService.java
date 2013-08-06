@@ -75,4 +75,10 @@ public class SalesForceService {
     	}
     	return contact;
     }
+    
+    public Contact updateLabel(String label,Long id){
+    	Contact contact = contactDao.get(id);
+    	contact.setLabel(label);
+    	return contactDao.update(contact);
+    }
 }

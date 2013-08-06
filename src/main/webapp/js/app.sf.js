@@ -7,4 +7,9 @@ var app = app || {};
 		params.method="GET";
 		return app.getJsonData(contextPath+"/salesforce/listContacts",params);
 	}
+	app.sf.updateLabel = function(params){
+		params=params||{};
+		params.method="Post";
+		return app.getJsonData(contextPath+"/salesforce/updateLabel",params);
+	}
 })(jQuery);

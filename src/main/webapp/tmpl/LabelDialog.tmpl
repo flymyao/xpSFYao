@@ -1,0 +1,23 @@
+<script id="LabelDialog" type="text/html">
+ <div class="LabelDialog">
+	<div class="dialogBackground">
+	</div>
+	<div class="dialogContent">
+	  <div class="dialogHead">
+	    <span class="dialogTitle">{{data.type}} Label for {{data.name}}</span>
+		<span class="close dialogBtns dialogCloseBtn">&times;</span>
+	  </div>
+	  <div class="dialogBody">
+	    <input type="text" data-id="{{data.id}}" class="input-block-level" name="label" value="{{data.label}}" placeholder="Label Name"/>
+	  </div>
+	  <div class="dialogBtns">
+	  	{{#equal data.type "Add"}}
+			<button class="btn btn-primary add">Add</button>
+		{{else}}
+			<button class="btn btn-primary update">Update</button>
+		{{/equal}}
+		<button class="btn btn-primary cancel">Cancel</button>
+	 </div>
+	</div>
+ </div>
+</script>
